@@ -1,0 +1,1 @@
+System.register([],function(t){"use strict";return{execute:function(){function e(e){this.message=e}t("module1",function(){return"Hello World"}),e.prototype.getMessage=function(){return this.message},t("module2",e)}}});
