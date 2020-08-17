@@ -62,27 +62,39 @@ function base(file) {
     };
 }
 
-export default [rollupMerge(base(umdFile), {
-    // umd module
-    output: {
-        format: 'umd',
-        sourcemap: true,
-        name: library,
-        exports,
-        globals
-    },
-    plugins: [
-        uglify()	                     
-    ]
-}), rollupMerge(base(cjsFile), {
+export default [
+    rollupMerge(base('index.system.js'), {
+        // umd module
+        output: {
+            format: 'system',
+            exports,
+            globals
+        },
+        plugins: [
+            uglify()	                     
+        ]
+    }), rollupMerge(base(umdFile), {
+        // umd module
+        output: {
+            format: 'umd',
+            sourcemap: true,
+            name: library,
+            exports,
+            globals
+        },
+        plugins: [
+            uglify()	                     
+        ]
+    }), rollupMerge(base(cjsFile), {
     // commonjs module
-    output: {
-        format: 'cjs',
-        exports
-    }
-}), rollupMerge(base(esmFile), {
+        output: {
+            format: 'cjs',
+            exports
+        }
+    }), rollupMerge(base(esmFile), {
     // es module
-    output: {
-        format: 'es'
-    }
-})];
+        output: {
+            format: 'es'
+        }
+    })
+];
