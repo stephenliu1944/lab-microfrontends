@@ -9,6 +9,7 @@ import { devEnvironments, parcel } from './package.json';
 import baseConfig from './webpack.config.base';
 
 const { server, proxy, define } = devEnvironments;
+const publicPath = parcel.publicPath.endsWith('/') ? parcel.publicPath : parcel.publicPath + '/';
 
 export default webpackMerge(baseConfig(parcel), {
     mode: 'development',
@@ -25,7 +26,7 @@ export default webpackMerge(baseConfig(parcel), {
         compress: true,             // 开起 gzip 压缩
         disableHostCheck: true,
         historyApiFallback: {       // browserHistory路由
-            index: parcel.publicPath
+            index: publicPath
         },   
         contentBase: path.resolve(__dirname, 'build'),
         proxy: {

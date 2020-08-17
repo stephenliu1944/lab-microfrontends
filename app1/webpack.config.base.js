@@ -27,6 +27,7 @@ export default function(config = {}) {
             // 避免多个应用之间 jsonpFunction 名冲突
             jsonpFunction: `webpackJsonp_${name}`
         },
+        externals: ['my-js1944'],
         resolve: {
             extensions: ['.js', '.jsx', '.css', '.less', '.scss', '.sass'],
             alias: {

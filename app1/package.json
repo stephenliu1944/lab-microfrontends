@@ -43,6 +43,7 @@
     "@babel/runtime": "^7.0.0",
     "@easytool/http": "^0.1.4",
     "antd": "^4.5.4",
+    "my-js1944": "^0.1.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router": "^3.2.1",
@@ -114,7 +115,8 @@
       "mock": 3000
     },
     "proxy": {
-      "(/proxy)": "http://ip-api.com"
+      "(/proxy)": "http://ip-api.com",
+      "/share": "http://localhost"
     },
     "define": {
       "__DEV__": true

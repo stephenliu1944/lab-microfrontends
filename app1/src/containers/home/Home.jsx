@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import catPNG from './images/cat.png';
 import { getIPInfo } from './services/demo';
 import Component1 from './components/component1/Component1';
+import { module1 } from 'my-js1944';
 
 const { TabPane } = Tabs;
 export default class Home extends Component {
@@ -42,7 +43,7 @@ export default class Home extends Component {
                         {JSON.stringify(region)}
                     </TabPane>
                     <TabPane tab="Tab 2" key="2">
-                        Content of Tab Pane 2
+                        {module1()}
                     </TabPane>
                 </Tabs>
             </div>
