@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { Tabs } from 'antd';
 import catPNG from './images/cat.png';
 import { getIPInfo } from './services/demo';
-import Component1 from './components/component1/Component1';
-import { module1 } from 'my-js1944';
+import { module1 } from 'my-lib1944';
+import { Component1, Component2 } from 'my-ui1944';
+import 'my-ui1944/dist/my-ui1944.css';
 
 const { TabPane } = Tabs;
 export default class Home extends Component {
@@ -44,6 +45,12 @@ export default class Home extends Component {
                     </TabPane>
                     <TabPane tab="Tab 2" key="2">
                         {module1()}
+                    </TabPane>
+                    <TabPane tab="Tab 3" key="3">
+                        <Component1 />
+                    </TabPane>
+                    <TabPane tab="Tab 4" key="4">
+                        <Component2 />
                     </TabPane>
                 </Tabs>
             </div>

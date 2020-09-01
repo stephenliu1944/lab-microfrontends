@@ -10,7 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.faviconPath %>">
-    <script type="systemjs-importmap" src="/share/importmap.json"></script>
+    <% if (process.env.NODE_ENV === 'production') { %>
+        <script type="systemjs-importmap" src="/share/importmap.json"></script>
+    <% } %>
 </head>
 <body>
     <div id="app" class="app"></div>

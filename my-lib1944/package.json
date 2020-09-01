@@ -1,19 +1,11 @@
 {
-  "name": "my-js1944",
-  "version": "0.1.0",
+  "name": "my-lib1944",
+  "version": "0.1.1",
   "description": "Use for development JS library.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "homepage": "",
-  "bugs": {
-    "url": ""
-  },
   "keywords": [],
   "files": [
     "dist",
@@ -113,7 +105,7 @@
     "proxies": {}
   },
   "parcels": {
-    "library": "MyLib",
+    "library": "MyLib1944",
     "exports": "auto",
     "external": [],
     "globals": {}

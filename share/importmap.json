@@ -1,5 +1,7 @@
 {
     "imports": {
-       "my-js1944": "/share/index.system.js"
+       "my-lib1944": "/share/my-lib1944/dist/index.system.js",
+       "my-ui1944": "/share/my-ui1944/dist/my-ui1944.js",
+       "my-ui1944/dist/my-ui1944.css": "/share/my-ui1944/dist/my-ui1944.css"
     }
 }

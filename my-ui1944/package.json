@@ -1,18 +1,10 @@
 {
-  "name": "my-ui",
-  "version": "0.1.0",
+  "name": "my-ui1944",
+  "version": "0.1.1",
   "description": "Use for development React UI library.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "homepage": "",
-  "bugs": {
-    "url": ""
-  },
   "keywords": [],
   "files": [
     "dist",
@@ -143,7 +135,7 @@
     }
   },
   "parcels": {
-    "library": "MyUI",
+    "library": "MyUI1944",
     "external": [
       "react",
       "react-dom"
