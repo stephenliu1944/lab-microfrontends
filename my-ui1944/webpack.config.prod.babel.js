@@ -16,7 +16,9 @@ const ParcelList = [{
     // 非压缩配置
     mode: 'none',
     output: {
-        filename: JS_FILE
+        filename: JS_FILE,
+        library,
+        libraryTarget: 'umd'
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -28,7 +30,9 @@ const ParcelList = [{
     // 压缩配置
     mode: 'production',
     output: {
-        filename: MIN_JS_FILE
+        filename: MIN_JS_FILE,
+        library,
+        libraryTarget: 'umd'
     },
     optimization: {
         minimizer: [
@@ -41,21 +45,24 @@ const ParcelList = [{
             filename: MIN_CSS_FILE
         })
     ]
+}, {
+    // systemjs配置
+    mode: 'none',
+    output: {
+        filename: pkg.name + '.system.js',
+        libraryTarget: 'system'
+    }
 }];
 
-export default ParcelList.map(config => {
+export default ParcelList.map((config, index) => {
+    let main = ['./src/publicPath.js', './src/index.js'];
+    index < 2 && main.unshift('./src/styles/index.less');
+
     return webpackMerge(baseConfig(), {
         // 公共配置
         entry: {
             // js 和 css 是分离的所以分开打包
-            main: [
-                './src/styles/index.less',
-                './src/index.js'                    // index.js 要放最后: When combining with the output.library option: If an array is passed only the last item is exported.
-            ]
-        },
-        output: {
-            library,
-            libraryTarget: 'umd'
+            main: main
         },
         externals: external,
         module: {

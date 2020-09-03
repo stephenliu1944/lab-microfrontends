@@ -12,7 +12,7 @@ const { define } = devEnvironments;
 export default webpackMerge(baseConfig(), {
     mode: 'production',
     devtool: 'hidden-source-map',           // source-map在本地, 调试时需要Chrome的DevTools关联.
-    externals: ['my-lib1944', 'my-ui1944'],
+    externals: ['my-lib1944', 'my-ui1944', 'my-ui1944/dist/my-ui1944.css'],
     optimization: {
         minimizer: [
             new TerserPlugin({

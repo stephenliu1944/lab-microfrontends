@@ -12,6 +12,9 @@
     <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.faviconPath %>">
     <% if (process.env.NODE_ENV === 'production') { %>
         <script type="systemjs-importmap" src="/share/importmap.json"></script>
+        <script>
+            window.__MY_UI1944_PUBLIC_PATH__ = '/share/my-ui1944/dist/';
+        </script>
     <% } %>
 </head>
 <body>
