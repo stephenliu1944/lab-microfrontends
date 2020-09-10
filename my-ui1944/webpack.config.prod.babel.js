@@ -7,7 +7,7 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
-const { library, external } = pkg.parcels;
+const { library, externals } = pkg.parcel;
 const JS_FILE = pkg.name + '.js';
 const CSS_FILE = pkg.name + '.css';
 const MIN_JS_FILE = pkg.name + '.min.js';
@@ -16,9 +16,7 @@ const ParcelList = [{
     // 非压缩配置
     mode: 'none',
     output: {
-        filename: JS_FILE,
-        library,
-        libraryTarget: 'umd'
+        filename: JS_FILE
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -30,9 +28,7 @@ const ParcelList = [{
     // 压缩配置
     mode: 'production',
     output: {
-        filename: MIN_JS_FILE,
-        library,
-        libraryTarget: 'umd'
+        filename: MIN_JS_FILE
     },
     optimization: {
         minimizer: [
@@ -45,26 +41,24 @@ const ParcelList = [{
             filename: MIN_CSS_FILE
         })
     ]
-}, {
-    // systemjs配置
-    mode: 'none',
-    output: {
-        filename: pkg.name + '.system.js',
-        libraryTarget: 'system'
-    }
 }];
 
-export default ParcelList.map((config, index) => {
-    let main = ['./src/publicPath.js', './src/index.js'];
-    index < 2 && main.unshift('./src/styles/index.less');
-
+export default ParcelList.map(config => {
     return webpackMerge(baseConfig(), {
         // 公共配置
         entry: {
             // js 和 css 是分离的所以分开打包
-            main: main
+            main: [
+                './src/styles/index.less',
+                './src/publicPath.js',
+                './src/index.js'                    // index.js 要放最后, issue: When combining with the output.library option: If an array is passed only the last item is exported.
+            ]
         },
-        externals: external,
+        output: {
+            library,
+            libraryTarget: 'umd'
+        },
+        externals,
         module: {
             rules: [{
                 /**

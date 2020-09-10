@@ -6,9 +6,9 @@ import defineConfig from '@easytool/define-config';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import WebpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { devEnvironments, parcel } from './package.json';
-import baseConfig from './webpack.config.base';
+import baseConfig, { getPublicPath } from './webpack.config.base';
 
-const { server, proxy, define } = devEnvironments;
+const { server, proxy, globals } = devEnvironments;
 
 export default webpackMerge(baseConfig(parcel), {
     mode: 'development',
@@ -25,7 +25,7 @@ export default webpackMerge(baseConfig(parcel), {
         compress: true,             // 开起 gzip 压缩
         disableHostCheck: true,
         historyApiFallback: {       // browserHistory路由
-            index: parcel.publicPath
+            index: getPublicPath(parcel.publicPath)
         },   
         contentBase: path.resolve(__dirname, 'build'),
         proxy: {
@@ -56,8 +56,7 @@ export default webpackMerge(baseConfig(parcel), {
         new CleanWebpackPlugin(),
         // 配置全局变量
         new webpack.DefinePlugin({
-            ...defineConfig(define),
-            'process.env.NODE_ENV': JSON.stringify('development')
+            ...defineConfig(globals)
         })
     ]
 });

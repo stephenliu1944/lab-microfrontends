@@ -1,6 +1,6 @@
 {
   "name": "my-ui1944",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Use for development React UI library.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.dev.babel.js --colors --display-error-details",
-    "build:prod": "cross-env NODE_ENV=production INLINE_IMPORT=true webpack --config webpack.config.prod.babel.js --colors --display-error-details",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.prod.babel.js --colors --display-error-details",
     "build:esm": "gulp clean-es && cross-env NODE_ENV=production BABEL_ENV=esm gulp build",
     "build:cjs": "gulp clean-lib && cross-env NODE_ENV=production BABEL_ENV=commonjs gulp build",
     "build:umd": "gulp clean-dist && npm run build:prod && gulp copy-umd",
@@ -123,20 +123,17 @@
     "webpack-merge": "^4.1.4"
   },
   "devEnvironments": {
-    "servers": {
+    "server": {
       "local": 8080,
       "mock": 3000
     },
-    "proxies": {
+    "proxy": {
       "/api": "http://localhost:3000"
     },
-    "globals": {
-      "__DEV__": true,
-      "process.env.NODE_ENV": "development"
-    }
+    "globals": {}
   },
-  "parcels": {
+  "parcel": {
     "library": "MyUI1944",
-    "external": []
+    "externals": []
   }
 }

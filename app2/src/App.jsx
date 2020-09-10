@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import 'Images/favicon.ico';
 import 'Styles/main.css';
 import http from '@easytool/http';

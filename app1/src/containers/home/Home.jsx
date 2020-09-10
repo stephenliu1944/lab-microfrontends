@@ -35,7 +35,7 @@ export default class Home extends Component {
 
         return (
             <div className={styles.home}>
-                <h1>Home1</h1>
+                <h1>App1 Home</h1>
                 {/* 图片引入示例, 熟悉后请删除 */}
                 <img src={catPNG} />
 

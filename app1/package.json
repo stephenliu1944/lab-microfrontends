@@ -42,6 +42,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@easytool/http": "^0.1.4",
+    "prop-types": "^15.7.2",
     "antd": "^4.5.4",
     "my-lib1944": "^0.1.1",
     "my-ui1944": "^0.1.9",
@@ -116,10 +117,9 @@
       "mock": 3000
     },
     "proxy": {
-      "(/proxy)": "http://ip-api.com",
-      "/share": "http://localhost"
+      "(/proxy)": "http://ip-api.com"
     },
-    "define": {
+    "globals": {
       "__DEV__": true
     }
   },

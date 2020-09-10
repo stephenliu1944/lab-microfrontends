@@ -3,29 +3,32 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
-import { name, parcel } from './package.json';
 import SystemHtmlWebpackPlugin from 'system-invoke-html-webpack-plugin';
 import IncludeAssetsHtmlWebpackPlugin from 'include-assets-html-webpack-plugin';
+import { name, parcel } from './package.json';
 
 const BUILD_PATH = 'build';
 const ASSETS_PATH = 'assets';
 const CONTENT_HASH = '[contenthash:8]';
-const publicPath = parcel.publicPath.endsWith('/') ? parcel.publicPath : parcel.publicPath + '/';
+
+export function getPublicPath(publicPath = '') {
+    return publicPath.endsWith('/') ? publicPath : publicPath + '/';
+}
 
 export default function(config = {}) {
     
     return {
         entry: {
-            main: ['./src/index.jsx']
+            main: ['./src/index.js']
         },
         output: {
             libraryTarget: 'system',
-            publicPath,
+            publicPath: getPublicPath(parcel.publicPath),
             path: path.resolve(__dirname, BUILD_PATH),
             filename: `${ASSETS_PATH}/js/[name].${CONTENT_HASH}.js`,
             chunkFilename: `${ASSETS_PATH}/js/[name].${CONTENT_HASH}.chunk.js`,
             // 避免多个应用之间 jsonpFunction 名冲突
-            jsonpFunction: `webpackJsonp_${name}`
+            jsonpFunction: name
         },
         resolve: {
             extensions: ['.js', '.jsx', '.css', '.less', '.scss', '.sass'],
