@@ -1,6 +1,6 @@
 {
     "imports": {
-       "my-lib1944": "/share/my-lib1944@0.1.4/dist/index.umd.js",
+       "my-lib1944": "/share/my-lib1944@0.1.5/dist/index.umd.js",
        "my-ui1944": "/share/my-ui1944@0.1.10/dist/my-ui1944.js",
        "my-ui1944/dist/my-ui1944.css": "/share/my-ui1944@0.1.10/dist/my-ui1944.css"
     }

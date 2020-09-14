@@ -42,10 +42,10 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@easytool/http": "^0.1.4",
-    "prop-types": "^15.7.2",
     "antd": "^4.5.4",
     "my-lib1944": "^0.1.1",
-    "my-ui1944": "^0.1.9",
+    "my-ui1944": "^0.1.15",
+    "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router": "^3.2.1",

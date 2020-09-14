@@ -1,5 +1,7 @@
 import styles from './header.css';
 import React, { Component } from 'react';
+import { Header as HeaderUI } from 'my-ui1944';
+
 /**
  * @desc 页面顶部组件
  */
@@ -11,9 +13,7 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div className={styles.header}>
-                <h1>Header</h1>
-            </div>
+            <HeaderUI />
         );
     }
 }

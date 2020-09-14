@@ -1,7 +1,7 @@
-import { Component1 } from '../../src/index';
+import { Header } from '../../src/index';
 
-describe('Component1', function() {
-    var component = new Component1();
+describe('Header', function() {
+    var component = new Header();
     it('render', function() {
         expect(component.render()).toMatchSnapshot();
     });

@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css';
+import 'my-ui1944/dist/my-ui1944.css';
 import 'Images/favicon.ico';
 import 'Styles/main.css';
 import http from '@easytool/http';

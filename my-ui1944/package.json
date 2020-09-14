@@ -1,10 +1,9 @@
 {
   "name": "my-ui1944",
-  "version": "0.1.10",
+  "version": "0.1.15",
   "description": "Use for development React UI library.",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "browser": "dist/my-ui1944.js",
   "license": "MIT",
   "keywords": [],
   "files": [
@@ -124,7 +123,7 @@
   },
   "devEnvironments": {
     "server": {
-      "local": 8080,
+      "local": 8084,
       "mock": 3000
     },
     "proxy": {
